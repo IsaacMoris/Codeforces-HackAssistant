@@ -186,6 +186,8 @@ def compares(input_text, thread_id_str):
 
     # Compare outputs
     if source_output != compare_output:
+        with open("input.txt", "w") as file:
+            file.write(input_text)
         max_len = 200 # Truncate long outputs in error messages
         source_disp = source_output[:max_len] + ("..." if len(source_output) > max_len else "")
         compare_disp = compare_output[:max_len] + ("..." if len(compare_output) > max_len else "")
